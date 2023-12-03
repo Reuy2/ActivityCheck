@@ -1,4 +1,5 @@
-﻿using ActivityCheck.Models;
+﻿using ActivityCheck.DAL.Interfaces;
+using ActivityCheck.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,12 +9,14 @@ namespace ActivityCheck.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IActivityRepository activityRepository)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+
+
+        public async Task<IActionResult> Index()
         {
             return View();
         }

@@ -1,0 +1,11 @@
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\bin\Debug\net6.0\ActivityCheck.Domain.deps.json
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\bin\Debug\net6.0\ActivityCheck.Domain.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\bin\Debug\net6.0\ActivityCheck.Domain.pdb
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ActivityCheck.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ActivityCheck.Domain.AssemblyInfoInputs.cache
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ActivityCheck.Domain.AssemblyInfo.cs
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ActivityCheck.Domain.csproj.CoreCompileInputs.cache
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ActivityCheck.Domain.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\refint\ActivityCheck.Domain.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ActivityCheck.Domain.pdb
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.Domain\obj\Debug\net6.0\ref\ActivityCheck.Domain.dll

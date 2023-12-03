@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Проекты\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
+      "projectUniqueName": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
       "projectName": "ActivityCheck.Domain",
-      "projectPath": "D:\\Проекты\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
+      "projectPath": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
       "packagesPath": "C:\\Users\\macs1\\.nuget\\packages\\",
-      "outputPath": "D:\\Проекты\\ActivityCheck.Domain\\obj\\",
+      "outputPath": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\macs1\\AppData\\Roaming\\NuGet\\NuGet.Config",

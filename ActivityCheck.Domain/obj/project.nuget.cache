@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fP7IQV07DF4MtA4bW1PW0Tbyt5bpunxsvZEgJDkcvz2H46AQh8AdfcZDVmx/d3Z2IXRQK4HspV/qsseLRdm6Mg==",
+  "dgSpecHash": "nEs3xDMfPryP4Od3apDgLDgeRL7uXY7u4m/uLTWEB9vkLj2+2iFX3Oe/Sb/PJHL2olGPGSG3DQzUn3Qg3H8EVA==",
   "success": true,
-  "projectFilePath": "D:\\Проекты\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
+  "projectFilePath": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,15 @@
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\bin\Debug\net6.0\ActivityCheck.DAL.deps.json
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\bin\Debug\net6.0\ActivityCheck.DAL.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\bin\Debug\net6.0\ActivityCheck.DAL.pdb
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\bin\Debug\net6.0\ActivityCheck.Domain.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\bin\Debug\net6.0\ActivityCheck.Domain.pdb
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.csproj.AssemblyReference.cache
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.AssemblyInfoInputs.cache
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.AssemblyInfo.cs
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.csproj.CoreCompileInputs.cache
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.csproj.CopyComplete
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\refint\ActivityCheck.DAL.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ActivityCheck.DAL.pdb
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck.DAL\obj\Debug\net6.0\ref\ActivityCheck.DAL.dll
