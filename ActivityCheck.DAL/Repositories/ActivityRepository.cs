@@ -12,25 +12,46 @@ namespace ActivityCheck.DAL.Repositories
     public class ActivityRepository : IActivityRepository
     {
 
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db ;
 
         public ActivityRepository(ApplicationDbContext db)
         {
             _db = db;
         }
-        public bool Create(Activity entity)
+
+        public async Task<bool> Create(Activity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _db.AddAsync(entity);
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                //Логгировать ошибку
+                return false;
+            }
+            return true;
         }
 
-        public bool Delete(Activity entity)
+        public async Task<bool> Delete(Activity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _db.Remove(entity);
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                //Логгировать ошибку
+                return false;
+            }
+            return true;
         }
 
-        public Activity Get(int id)
+        public async Task<Activity> Get(int id)
         {
-            throw new NotImplementedException();
+            return await _db.Activity.FirstOrDefaultAsync(obj => obj.Id == id);
         }
 
         public async Task<IEnumerable<Activity>> GetAll()
@@ -38,9 +59,9 @@ namespace ActivityCheck.DAL.Repositories
             return await _db.Activity.ToListAsync();
         }
 
-        public Activity GetByName(string name)
+        public async Task<Activity> GetByName(string name)
         {
-            throw new NotImplementedException();
+            return await _db.Activity.FirstOrDefaultAsync(obj => obj.Name == name);
         }
     }
 }
