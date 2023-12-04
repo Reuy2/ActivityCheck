@@ -9,6 +9,7 @@
       "ActivityCheck/1.0.0": {
         "dependencies": {
           "ActivityCheck.DAL": "1.0.0",
+          "ActivityCheck.Service": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.25"
         },
         "runtime": {
@@ -432,6 +433,15 @@
         "runtime": {
           "ActivityCheck.Domain.dll": {}
         }
+      },
+      "ActivityCheck.Service/1.0.0": {
+        "dependencies": {
+          "ActivityCheck.DAL": "1.0.0",
+          "ActivityCheck.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ActivityCheck.Service.dll": {}
+        }
       }
     }
   },
@@ -727,6 +737,11 @@
       "sha512": ""
     },
     "ActivityCheck.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ActivityCheck.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

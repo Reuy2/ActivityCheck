@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ActivityCheck.DAL\ActivityCheck.DAL.csproj" />
+    <ProjectReference Include="..\ActivityCheck.Service\ActivityCheck.Service.csproj" />
   </ItemGroup>
 
 </Project>

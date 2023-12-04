@@ -1,4 +1,6 @@
 ﻿using ActivityCheck.DAL.Interfaces;
+using ActivityCheck.Service.Interfaces;
+using ActivityCheck.Domain.Enum;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActivityCheck.Controllers
@@ -7,17 +9,21 @@ namespace ActivityCheck.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-        private readonly IActivityRepository _activityRepository;
+        private readonly IActivityService _activityService;
 
-        public ActivityController(ILogger<HomeController> logger, IActivityRepository activityRepository)
+        public ActivityController(ILogger<HomeController> logger, IActivityService activityService)
         {
             _logger = logger;
-            _activityRepository = activityRepository;
+            _activityService = activityService;
         }
         public async Task<IActionResult> GetActivities()
         {
-            var response = await _activityRepository.GetAll();
-            return View(response);
+            var response =await  _activityService.GetActivities();
+            if(response.StatusCode == Domain.Enum.StatusCode.Ok)
+            {
+                return View(response.Data);
+            }
+            return RedirectToAction("Error");
         }
     }
 }

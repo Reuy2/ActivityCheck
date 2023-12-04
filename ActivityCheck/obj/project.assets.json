@@ -761,6 +761,20 @@
         "runtime": {
           "bin/placeholder/ActivityCheck.Domain.dll": {}
         }
+      },
+      "ActivityCheck.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ActivityCheck.DAL": "1.0.0",
+          "ActivityCheck.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ActivityCheck.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ActivityCheck.Service.dll": {}
+        }
       }
     }
   },
@@ -1936,11 +1950,17 @@
       "type": "project",
       "path": "../ActivityCheck.Domain/ActivityCheck.Domain.csproj",
       "msbuildProject": "../ActivityCheck.Domain/ActivityCheck.Domain.csproj"
+    },
+    "ActivityCheck.Service/1.0.0": {
+      "type": "project",
+      "path": "../ActivityCheck.Service/ActivityCheck.Service.csproj",
+      "msbuildProject": "../ActivityCheck.Service/ActivityCheck.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "ActivityCheck.DAL >= 1.0.0",
+      "ActivityCheck.Service >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.25"
     ]
   },
@@ -1973,6 +1993,9 @@
           "projectReferences": {
             "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.DAL\\ActivityCheck.DAL.csproj": {
               "projectPath": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.DAL\\ActivityCheck.DAL.csproj"
+            },
+            "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Service\\ActivityCheck.Service.csproj": {
+              "projectPath": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Service\\ActivityCheck.Service.csproj"
             }
           }
         }

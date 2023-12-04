@@ -1,11 +1,13 @@
 ﻿@using ActivityCheck.Domain.Entity;
-
 @model IEnumerable<Activity>;
 
-@foreach(var activity in Model)
-{
-    <p>@activity.Name</p>
-    <p>@activity.Description</p>
-    <p>@activity.Created</p>
-    <p>@activity.DurationInSec</p>
-}
+    @foreach(var activity in Model){
+        <div>
+            <h3>@activity.Name</h3>
+            <ul>
+                <li><p>@activity.Description</p></li>
+                <li><p>@activity.Created</p></li>
+                <li><p>@activity.DurationInSec</p></li>
+            </ul>
+        </div>
+    }

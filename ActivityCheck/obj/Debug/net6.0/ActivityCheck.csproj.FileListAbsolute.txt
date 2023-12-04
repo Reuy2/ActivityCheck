@@ -68,3 +68,5 @@ D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\obj\Debug\net6.0\refint\A
 D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\obj\Debug\net6.0\ActivityCheck.pdb
 D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\obj\Debug\net6.0\ActivityCheck.genruntimeconfig.cache
 D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\obj\Debug\net6.0\ref\ActivityCheck.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\bin\Debug\net6.0\ActivityCheck.Service.dll
+D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\bin\Debug\net6.0\ActivityCheck.Service.pdb

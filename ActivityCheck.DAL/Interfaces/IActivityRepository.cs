@@ -9,6 +9,6 @@ namespace ActivityCheck.DAL.Interfaces
 {
     public interface IActivityRepository : IBaseRepository<Activity>
     {
-        Activity GetByName(string name);
+        Task<Activity> GetByName(string name);
     }
 }

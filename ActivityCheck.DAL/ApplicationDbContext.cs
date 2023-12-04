@@ -7,7 +7,7 @@ namespace ActivityCheck.DAL
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
+            Database.EnsureCreated();
         }
 
         public DbSet<Activity> Activity { get; set; }
