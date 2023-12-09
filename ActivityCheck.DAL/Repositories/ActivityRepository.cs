@@ -59,5 +59,12 @@ namespace ActivityCheck.DAL.Repositories
         {
             return await _db.Activity.FirstOrDefaultAsync(obj => obj.Name == name);
         }
+
+        public async Task<Activity> Update(Activity entity)
+        {
+            _db.Update(entity);
+            await _db.SaveChangesAsync();
+            return entity;
+        }
     }
 }

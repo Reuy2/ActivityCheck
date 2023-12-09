@@ -10,7 +10,8 @@ namespace ActivityCheck.Service.Interfaces
         public Task<BaseResponse<IEnumerable<Activity>>> GetActivities();
 
         public Task<BaseResponse<Activity>> GetActivity(int id);
-        public Task<BaseResponse<bool>> CreateActivity(ActivityViewEntity activity);
+        public Task<BaseResponse<Activity>> CreateActivity(ActivityViewEntity activity);
         public Task<BaseResponse<bool>> DeleteActivity(int id);
+        public Task<BaseResponse<Activity>> EditActivity(int id, ActivityViewEntity activity);
     }
 }

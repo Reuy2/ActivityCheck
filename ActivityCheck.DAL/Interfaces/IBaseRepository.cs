@@ -15,5 +15,7 @@ namespace ActivityCheck.DAL.Interfaces
         Task<IEnumerable<T>> GetAll();
 
         Task<bool> Delete(T entity);
+
+        Task<T> Update(T entity);
     }
 }

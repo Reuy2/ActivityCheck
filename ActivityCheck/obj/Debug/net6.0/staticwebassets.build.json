@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D1axncwQ2gAAoyQ7QfJzWHmZYjdE1gZs/Q5Vjtz8s0U=",
+  "Hash": "aatyd8TF5Czq6nfpUyiIlHbf9m8NTxlBXsjZWwkBvZY=",
   "Source": "ActivityCheck",
   "BasePath": "_content/ActivityCheck",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ActivityCheck.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\BackGround.css",
+      "SourceId": "ActivityCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\",
+      "BasePath": "_content/ActivityCheck",
+      "RelativePath": "css/BackGround.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BackGround.css"
+    },
+    {
+      "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\LayoutElements.css",
+      "SourceId": "ActivityCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\",
+      "BasePath": "_content/ActivityCheck",
+      "RelativePath": "css/LayoutElements.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\LayoutElements.css"
     },
     {
       "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\site.css",

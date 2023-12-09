@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\ActivityCheck.bundle.scp.css"
     },
     {
+      "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\BackGround.css",
+      "PackagePath": "staticwebassets\\css\\BackGround.css"
+    },
+    {
+      "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\LayoutElements.css",
+      "PackagePath": "staticwebassets\\css\\LayoutElements.css"
+    },
+    {
       "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

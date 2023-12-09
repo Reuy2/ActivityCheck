@@ -122,5 +122,36 @@ namespace ActivityCheck.Service.Implementations
                 return response;
             }
         }
+
+        public async Task<BaseResponse<Activity>> EditActivity(int id, ActivityViewEntity model)
+        {
+            var response = new BaseResponse<Activity>();
+            try
+            {
+                var activity = await _activityRepository.Get(id);
+                if(activity is null)
+                {
+                    response.StatusCode = StatusCode.NotFound;
+                    response.Description = "Activity Not Found";
+                    return response;
+                }
+
+                activity.Name = model.Name;
+                activity.DurationInSec = model.DurationInSec;
+                activity.Description = model.Description;
+                activity.Created = model.Created;
+
+                await _activityRepository.Update(activity);
+                response.StatusCode = StatusCode.Ok;
+                response.Data = activity;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = StatusCode.InternalServerError;
+                response.Description = $"[Edit]: {ex.Message}";
+                return response;
+            }
+        }
     }
 }
