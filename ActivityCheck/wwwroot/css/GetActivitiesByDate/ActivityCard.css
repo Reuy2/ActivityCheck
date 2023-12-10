@@ -1,0 +1,93 @@
+﻿.activity-card-container {
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 5px 5px 10px 0px #885620;
+    margin: 10px;
+    border-radius: 6px;
+    border-color: black;
+    border-width: 2px;
+    border: 2px solid black;
+    min-width: 200px;
+    background-color: rgba(233, 243, 22, 0.34);
+}
+
+.activity-card-card {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.activity-card-name {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-card-text {
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.activity-card-duration {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.activity-card-description {
+    width: 100%;
+    height: 39px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.activity-card-buttons {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.activity-card-delete-button {
+    font-size: 16px;
+    background-color: #f0f15b;
+    border-radius:4px;
+}
+
+.activity-card-edit-button {
+    font-size: 16px;
+    margin-left: 10px;
+    background-color: rgba(218, 227, 21, 0.85);
+    border-radius: 4px;
+}
+
+.activity-card-container1 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    justify-content: center;
+}

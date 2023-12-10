@@ -12,12 +12,16 @@ build_property.RootNamespace = ActivityCheck
 build_property.ProjectDir = D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\PetProjects\PetProjectAsp.NetActivity\ActivityCheck
 build_property._RazorSourceGeneratorDebug = 
 
 [D:/PetProjects/PetProjectAsp.NetActivity/ActivityCheck/Views/Activity/GetActivities.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcR2V0QWN0aXZpdGllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PetProjects/PetProjectAsp.NetActivity/ActivityCheck/Views/Activity/GetActivitiesByDate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcR2V0QWN0aXZpdGllc0J5RGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PetProjects/PetProjectAsp.NetActivity/ActivityCheck/Views/Home/Index.cshtml]

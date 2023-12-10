@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\css\\BackGround.css"
     },
     {
+      "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\GetActivitiesByDate\\ActivityCard.css",
+      "PackagePath": "staticwebassets\\css\\GetActivitiesByDate\\ActivityCard.css"
+    },
+    {
+      "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\GetActivities\\GetActivitiesStyle.css",
+      "PackagePath": "staticwebassets\\css\\GetActivities\\GetActivitiesStyle.css"
+    },
+    {
       "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\LayoutElements.css",
       "PackagePath": "staticwebassets\\css\\LayoutElements.css"
     },
@@ -19,6 +27,10 @@
     {
       "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\js\\GetActivitiesScripts\\FormChart.js",
+      "PackagePath": "staticwebassets\\js\\GetActivitiesScripts\\FormChart.js"
     },
     {
       "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\js\\site.js",

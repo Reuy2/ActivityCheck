@@ -1,0 +1,28 @@
+﻿@using ActivityCheck.Domain.Entity;
+@model IEnumerable<Activity>
+
+<link rel="stylesheet" href="~/css/GetActivitiesByDate/ActivityCard.css" />
+@foreach(var act in Model)
+{
+
+    var durationInHour = act.DurationInSec / 60f / 60f;
+
+    <div class="activity-card-container">
+        <div class="activity-card-card">
+            <div class="activity-card-name">
+                <h2 class="activity-card-text">@act.Name</h2>
+            </div>
+            <div class="activity-card-duration"><span>Длительность:@durationInHour h</span></div>
+            <div class="activity-card-description"><span>Описание:@act.Description </span></div>
+            <div class="activity-card-buttons">
+                <button type="button" class="activity-card-delete-button button">
+                    Удалить
+                </button>
+                <button type="button" class="activity-card-edit-button button">
+                    Изменить
+                </button>
+            </div>
+            <div class="activity-card-container1"><span>@act.Created.Date</span></div>
+        </div>
+    </div>
+}

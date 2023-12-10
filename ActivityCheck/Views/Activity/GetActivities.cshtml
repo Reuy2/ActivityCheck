@@ -1,13 +1,11 @@
-﻿@using ActivityCheck.Domain.Entity;
-@model IEnumerable<Activity>;
+﻿<link rel="stylesheet" href="~/css/GetActivities/GetActivitiesStyle.css" />
 
-    @foreach(var activity in Model){
-        <div>
-            <h3>@activity.Name</h3>
-            <ul>
-                <li><p>@activity.Description</p></li>
-                <li><p>@activity.Created</p></li>
-                <li><p>@activity.DurationInSec</p></li>
-            </ul>
-        </div>
-    }
+
+<input id="GetChart" type="button" value="ShowChart"/>
+<br/>
+
+<canvas id="ActivityChart" class="AllActivityChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/GetActivitiesScripts/FormChart.js"></script>

@@ -9,6 +9,6 @@ namespace ActivityCheck.DAL.Interfaces
 {
     public interface IActivityRepository : IBaseRepository<Activity>
     {
-        Task<Activity> GetByName(string name);
+        Task<IEnumerable<Activity>> GetByDate(DateTime date);
     }
 }

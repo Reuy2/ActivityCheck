@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aatyd8TF5Czq6nfpUyiIlHbf9m8NTxlBXsjZWwkBvZY=",
+  "Hash": "FiNgGJCsLj/JMWmuzLGsx1i4RNNKL0gVTYl1FBCzpTE=",
   "Source": "ActivityCheck",
   "BasePath": "_content/ActivityCheck",
   "Mode": "Default",
@@ -68,6 +68,40 @@
       "OriginalItemSpec": "wwwroot\\css\\BackGround.css"
     },
     {
+      "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\GetActivities\\GetActivitiesStyle.css",
+      "SourceId": "ActivityCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\",
+      "BasePath": "_content/ActivityCheck",
+      "RelativePath": "css/GetActivities/GetActivitiesStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\GetActivities\\GetActivitiesStyle.css"
+    },
+    {
+      "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\GetActivitiesByDate\\ActivityCard.css",
+      "SourceId": "ActivityCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\",
+      "BasePath": "_content/ActivityCheck",
+      "RelativePath": "css/GetActivitiesByDate/ActivityCard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\GetActivitiesByDate\\ActivityCard.css"
+    },
+    {
       "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\LayoutElements.css",
       "SourceId": "ActivityCheck",
       "SourceType": "Discovered",
@@ -117,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\js\\GetActivitiesScripts\\FormChart.js",
+      "SourceId": "ActivityCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\",
+      "BasePath": "_content/ActivityCheck",
+      "RelativePath": "js/GetActivitiesScripts/FormChart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\GetActivitiesScripts\\FormChart.js"
     },
     {
       "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\js\\site.js",

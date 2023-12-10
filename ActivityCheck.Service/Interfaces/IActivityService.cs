@@ -8,6 +8,7 @@ namespace ActivityCheck.Service.Interfaces
     public interface IActivityService
     {
         public Task<BaseResponse<IEnumerable<Activity>>> GetActivities();
+        public Task<BaseResponse<IEnumerable<Activity>>> GetActivitiesByDate(DateTime date);
 
         public Task<BaseResponse<Activity>> GetActivity(int id);
         public Task<BaseResponse<Activity>> CreateActivity(ActivityViewEntity activity);

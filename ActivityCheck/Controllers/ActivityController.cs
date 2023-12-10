@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using ActivityCheck.Domain.ViewEntity.Activity;
 using ActivityCheck.Domain.Response;
 using ActivityCheck.Domain.Entity;
+using System.ComponentModel;
 
 namespace ActivityCheck.Controllers
 {
@@ -23,17 +24,36 @@ namespace ActivityCheck.Controllers
         [HttpGet]
         public async Task<IActionResult> GetActivities()
         {
-            var response =await  _activityService.GetActivities();
-            if(response.StatusCode == Domain.Enum.StatusCode.Ok)
+                return View();
+        }
+
+        [HttpPost]
+        public async Task<List<object>> GetAllActivitiesForChart()
+        {
+            List<object> data = new List<object>();
+
+            List<string> labels;
+            List<int> labelsData;
+
+            var resp = await _activityService.GetActivities();
+            if(resp.StatusCode == Domain.Enum.StatusCode.Ok)
             {
-                return View(response.Data);
+                labels = resp.Data.Select(p=>p.Created.ToShortDateString()).ToList();
+                labelsData = resp.Data.Select(p => p.DurationInSec).ToList();
+                data.Add(labels);
+                data.Add(labelsData);
+                return data;
             }
-            return RedirectToAction("Error");
+            data.Add(null);
+            data.Add(null);
+            return data;
         }
         [HttpGet]
-        public async Task<IActionResult> GetActivity([FromQuery] int id)
+        public async Task<IActionResult> GetActivitiesByDate([FromQuery] string date)
         {
-            var response = await _activityService.GetActivity(id);
+            DateTime.Parse(date);
+            var datetime = DateTime.Parse(date);
+            var response = await _activityService.GetActivitiesByDate(datetime);
             if (response.StatusCode == Domain.Enum.StatusCode.Ok)
             {
                 return View(response.Data);

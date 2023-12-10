@@ -153,5 +153,33 @@ namespace ActivityCheck.Service.Implementations
                 return response;
             }
         }
+
+        public async Task<BaseResponse<IEnumerable<Activity>>> GetActivitiesByDate(DateTime date)
+        {
+            var response = new BaseResponse<IEnumerable<Activity>>();
+            try
+            {
+
+                var activities = await _activityRepository.GetByDate(date);
+
+                if (activities.Count() == 0)
+                {
+                    response.StatusCode = StatusCode.NotFound;
+                    response.Description = "ActivitiesByDate Not Found";
+                    return response;
+                }
+                response.Data = activities;
+                response.StatusCode = StatusCode.Ok;
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.StatusCode = StatusCode.InternalServerError;
+                response.Description = $"[Edit]: {ex.Message}";
+                return response;
+            }
+
+
+        }
     }
 }

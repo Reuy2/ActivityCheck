@@ -55,13 +55,15 @@ namespace ActivityCheck.DAL.Repositories
             return await _db.Activity.ToListAsync();
         }
 
-        public async Task<Activity> GetByName(string name)
+        public async Task<IEnumerable<Activity>> GetByDate(DateTime date)
         {
-            return await _db.Activity.FirstOrDefaultAsync(obj => obj.Name == name);
+            var activities =  await _db.Activity.ToListAsync();
+            return activities.Where(obj=> obj.Created.Date ==  date).ToList();
         }
 
         public async Task<Activity> Update(Activity entity)
         {
+
             _db.Update(entity);
             await _db.SaveChangesAsync();
             return entity;
