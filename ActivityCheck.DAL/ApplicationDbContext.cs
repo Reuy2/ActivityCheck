@@ -11,6 +11,7 @@ namespace ActivityCheck.DAL
         }
 
         public DbSet<Activity> Activity { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }

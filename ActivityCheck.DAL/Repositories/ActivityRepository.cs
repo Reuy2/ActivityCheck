@@ -19,7 +19,7 @@ namespace ActivityCheck.DAL.Repositories
 
         public async Task Create(Activity entity)
         { 
-            await _db.AddAsync(entity);
+            await _db.Activity.AddAsync(entity);
             await _db.SaveChangesAsync();
 
         }
@@ -38,7 +38,7 @@ namespace ActivityCheck.DAL.Repositories
         public async Task<Activity> Update(Activity entity)
         {
 
-            _db.Update(entity);
+            _db.Activity.Update(entity);
             await _db.SaveChangesAsync();
             return entity;
         }

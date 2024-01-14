@@ -6,6 +6,7 @@ using ActivityCheck.Service;
 using ActivityCheck.Service.Implementations;
 using ActivityCheck.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddAuthentication("Cookies").AddCookie();
+builder.Services.AddAuthorization();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -22,6 +25,9 @@ builder.Services.AddScoped<IActivityService, ActivityService>();
 
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
