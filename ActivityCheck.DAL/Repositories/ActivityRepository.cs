@@ -1,11 +1,13 @@
 ﻿using ActivityCheck.DAL.Interfaces;
 using ActivityCheck.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
-
+using System.Diagnostics;
+using System.Linq;
+using Activity = ActivityCheck.Domain.Entity.Activity;
 
 namespace ActivityCheck.DAL.Repositories
 {
-    public class ActivityRepository : IActivityRepository
+    public class ActivityRepository : IBaseRepository<Activity>
     {
 
         private readonly ApplicationDbContext _db ;
@@ -15,50 +17,22 @@ namespace ActivityCheck.DAL.Repositories
             _db = db;
         }
 
-        public async Task<bool> Create(Activity entity)
-        {
-            try
-            {
-                await _db.AddAsync(entity);
-                await _db.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                //Логгировать ошибку
-                return false;
-            }
-            return true;
+        public async Task Create(Activity entity)
+        { 
+            await _db.AddAsync(entity);
+            await _db.SaveChangesAsync();
+
         }
 
-        public async Task<bool> Delete(Activity entity)
+        public async Task Delete(Activity entity)
         {
-            try
-            {
-                _db.Remove(entity);
-                await _db.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                //Логгировать ошибку
-                return false;
-            }
-            return true;
+            _db.Remove(entity);
+            await _db.SaveChangesAsync();
         }
 
-        public async Task<Activity> Get(int id)
+        public IQueryable<Activity> GetAll()
         {
-            return await _db.Activity.FirstOrDefaultAsync(obj => obj.Id == id);
-        }
-
-        public async Task<IEnumerable<Activity>> GetAll()
-        {
-            return await _db.Activity.ToListAsync();
-        }
-
-        public async Task<IEnumerable<Activity>> GetByDate(DateTime date)
-        {
-            var activities =  await _db.Activity.ToListAsync();
-            return activities.Where(obj=> obj.Created.Date ==  date).ToList();
+            return _db.Activity;
         }
 
         public async Task<Activity> Update(Activity entity)

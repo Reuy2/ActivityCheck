@@ -1,6 +1,7 @@
 using ActivityCheck.DAL;
 using ActivityCheck.DAL.Interfaces;
 using ActivityCheck.DAL.Repositories;
+using ActivityCheck.Domain.Entity;
 using ActivityCheck.Service;
 using ActivityCheck.Service.Implementations;
 using ActivityCheck.Service.Interfaces;
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
-builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
+builder.Services.AddScoped<IBaseRepository<Activity>, ActivityRepository>();
 builder.Services.AddScoped<IActivityService, ActivityService>();
 
 

@@ -4,6 +4,7 @@ using ActivityCheck.Domain.Enum;
 using ActivityCheck.Domain.Response;
 using ActivityCheck.Domain.ViewEntity.Activity;
 using ActivityCheck.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace ActivityCheck.Service.Implementations
 {
     public class ActivityService : IActivityService
     {
-        private readonly IActivityRepository _activityRepository;
+        private readonly IBaseRepository<Activity> _activityRepository;
 
-        public ActivityService(IActivityRepository activityRepository)
+        public ActivityService(IBaseRepository<Activity> activityRepository)
         {
             _activityRepository = activityRepository;
         }
@@ -26,7 +27,7 @@ namespace ActivityCheck.Service.Implementations
             var response = new BaseResponse<IEnumerable<Activity>>();
             try
             {
-                var activities = await _activityRepository.GetAll();
+                var activities = await _activityRepository.GetAll().ToListAsync();
                 if(activities.Count() == 0)
                 {
                     response.Description = "Не найдено обьектов";
@@ -51,7 +52,7 @@ namespace ActivityCheck.Service.Implementations
             var response = new BaseResponse<Activity>();
             try
             {
-                var activity = await _activityRepository.Get(id);
+                var activity = await _activityRepository.GetAll().FirstOrDefaultAsync(x=>x.Id == id);
                 if(activity is null)
                 {
                     response.StatusCode = StatusCode.NotFound;
@@ -69,7 +70,7 @@ namespace ActivityCheck.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<Activity>> CreateActivity(ActivityViewEntity activityView)
+        public async Task<BaseResponse<Activity>> CreateActivity(ActivityViewModel activityView)
         {
             var response = new BaseResponse<Activity>();
             try
@@ -101,7 +102,7 @@ namespace ActivityCheck.Service.Implementations
             var response = new BaseResponse<bool>() { Data = true };
             try
             {
-                var activity = await _activityRepository.Get(id);
+                var activity = await _activityRepository.GetAll().FirstOrDefaultAsync(x=>x.Id == id);
                 if(activity is null)
                 {
                     response.StatusCode = StatusCode.NotFound;
@@ -123,12 +124,12 @@ namespace ActivityCheck.Service.Implementations
             }
         }
 
-        public async Task<BaseResponse<Activity>> EditActivity(int id, ActivityViewEntity model)
+        public async Task<BaseResponse<Activity>> EditActivity(int id, ActivityViewModel model)
         {
             var response = new BaseResponse<Activity>();
             try
             {
-                var activity = await _activityRepository.Get(id);
+                var activity = await _activityRepository.GetAll().FirstOrDefaultAsync(x=>x.Id == id);
                 if(activity is null)
                 {
                     response.StatusCode = StatusCode.NotFound;
@@ -136,10 +137,7 @@ namespace ActivityCheck.Service.Implementations
                     return response;
                 }
 
-                activity.Name = model.Name;
-                activity.DurationInSec = model.DurationInSec;
-                activity.Description = model.Description;
-                activity.Created = model.Created;
+                activity.From(model);
 
                 await _activityRepository.Update(activity);
                 response.StatusCode = StatusCode.Ok;
@@ -160,7 +158,7 @@ namespace ActivityCheck.Service.Implementations
             try
             {
 
-                var activities = await _activityRepository.GetByDate(date);
+                var activities = await _activityRepository.GetAll().Where(x=>x.Created.Date == date.Date).ToListAsync();
 
                 if (activities.Count() == 0)
                 {

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nEs3xDMfPryP4Od3apDgLDgeRL7uXY7u4m/uLTWEB9vkLj2+2iFX3Oe/Sb/PJHL2olGPGSG3DQzUn3Qg3H8EVA==",
+  "dgSpecHash": "kIqMHNeLoFiSCrza4LtIY0CgK63xDMmBLbGJ905a3azwaH63oDt9Ou6WB8FHuDfY2QFEkHbIzBDgjaVMJKN0fw==",
   "success": true,
   "projectFilePath": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck.Domain\\ActivityCheck.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\macs1\\.nuget\\packages\\microsoft.extensions.features\\6.0.26\\microsoft.extensions.features.6.0.26.nupkg.sha512"
+  ],
   "logs": []
 }

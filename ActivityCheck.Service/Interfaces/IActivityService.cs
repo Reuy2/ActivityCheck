@@ -11,8 +11,8 @@ namespace ActivityCheck.Service.Interfaces
         public Task<BaseResponse<IEnumerable<Activity>>> GetActivitiesByDate(DateTime date);
 
         public Task<BaseResponse<Activity>> GetActivity(int id);
-        public Task<BaseResponse<Activity>> CreateActivity(ActivityViewEntity activity);
+        public Task<BaseResponse<Activity>> CreateActivity(ActivityViewModel activity);
         public Task<BaseResponse<bool>> DeleteActivity(int id);
-        public Task<BaseResponse<Activity>> EditActivity(int id, ActivityViewEntity activity);
+        public Task<BaseResponse<Activity>> EditActivity(int id, ActivityViewModel activity);
     }
 }

@@ -22,7 +22,7 @@ namespace ActivityCheck.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetActivities()
+        public  IActionResult GetActivities()
         {
                 return View();
         }
@@ -32,8 +32,8 @@ namespace ActivityCheck.Controllers
         {
             List<object> data = new List<object>();
 
-            List<string> labels;
-            List<int> labelsData;
+            List<string> labels = new List<string>();
+            List<int> labelsData = new List<int>();
 
             var resp = await _activityService.GetActivities();
             if(resp.StatusCode == Domain.Enum.StatusCode.Ok)
@@ -44,14 +44,15 @@ namespace ActivityCheck.Controllers
                 data.Add(labelsData);
                 return data;
             }
-            data.Add(null);
-            data.Add(null);
             return data;
         }
         [HttpGet]
         public async Task<IActionResult> GetActivitiesByDate([FromQuery] string date)
         {
-            DateTime.Parse(date);
+            if (String.IsNullOrEmpty(date))
+            {
+                RedirectToAction("Error");
+            }
             var datetime = DateTime.Parse(date);
             var response = await _activityService.GetActivitiesByDate(datetime);
             if (response.StatusCode == Domain.Enum.StatusCode.Ok)
@@ -78,7 +79,7 @@ namespace ActivityCheck.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(ActivityViewEntity activity)
+        public async Task<IActionResult> Save(ActivityViewModel activity)
         {
             if (ModelState.IsValid)
             {

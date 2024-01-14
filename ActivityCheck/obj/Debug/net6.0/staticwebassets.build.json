@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FiNgGJCsLj/JMWmuzLGsx1i4RNNKL0gVTYl1FBCzpTE=",
+  "Hash": "oizh3zOI0q72XHgw5QED5s0uUKLUl0gbCnCC0ELhKsE=",
   "Source": "ActivityCheck",
   "BasePath": "_content/ActivityCheck",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\TitlePage\\TitlePage.css",
+      "SourceId": "ActivityCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\",
+      "BasePath": "_content/ActivityCheck",
+      "RelativePath": "css/TitlePage/TitlePage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\TitlePage\\TitlePage.css"
     },
     {
       "Identity": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\favicon.ico",

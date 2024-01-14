@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\LayoutElements.css"
     },
     {
+      "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\TitlePage\\TitlePage.css",
+      "PackagePath": "staticwebassets\\css\\TitlePage\\TitlePage.css"
+    },
+    {
       "Id": "D:\\PetProjects\\PetProjectAsp.NetActivity\\ActivityCheck\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
