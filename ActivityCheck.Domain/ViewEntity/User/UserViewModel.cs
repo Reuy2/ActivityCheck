@@ -12,12 +12,10 @@ namespace ActivityCheck.Domain.ViewEntity.User
         [Required(ErrorMessage ="Введите имя пользователя")]
         public string Name { get; set; }
 
+        public string Email { get; set; }
+
         [Required(ErrorMessage ="Введите пароль")]
         public string Password {  get; set; }
-
-        [Required(ErrorMessage ="Введите подтверждение пароля")]
-        [Compare("Password",ErrorMessage ="Пароли не совпадают")]
-        public string PasswordConfirm {  get; set; }
 
     }
 }

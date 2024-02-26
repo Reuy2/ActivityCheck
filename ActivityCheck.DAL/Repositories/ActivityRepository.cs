@@ -26,7 +26,7 @@ namespace ActivityCheck.DAL.Repositories
 
         public async Task Delete(Activity entity)
         {
-            _db.Remove(entity);
+            _db.Activity.Remove(entity);
             await _db.SaveChangesAsync();
         }
 

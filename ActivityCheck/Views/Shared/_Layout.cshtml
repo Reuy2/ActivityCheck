@@ -23,8 +23,16 @@
                         <button type="button" class="authorize-buttons-reg-button button">
                             Регистрация
                         </button>
-                        <button type="button" class="authorize-buttons-reg-button button">
+                        <button onclick = "location.href='/User/Login'" type="button" class="authorize-buttons-reg-button button">
                             Вход
+                        </button>
+                    </nav>
+                }
+                else
+                {
+                    <nav id="Buttons" class="authorize-buttons-authorize-buttons">
+                        <button onclick="location.href='/User/LogOut'" type="button" class="authorize-buttons-reg-button button">
+                            Выход
                         </button>
                     </nav>
                 }

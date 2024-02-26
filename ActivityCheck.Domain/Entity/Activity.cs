@@ -11,7 +11,8 @@ namespace ActivityCheck.Domain.Entity
         public string Description { get; set; }
         public DateTime Created { get; set; }
         public int DurationInSec { get; set; }
-        public byte[]? Icon { get; set; }
+
+        public long UserId { get; set; }
 
         public void From(ActivityViewModel activityViewEntity)
         {
@@ -20,6 +21,17 @@ namespace ActivityCheck.Domain.Entity
             Description = activityViewEntity.Description;
             Created = activityViewEntity.Created;
             DurationInSec = activityViewEntity.DurationInSec;
+
+        }
+
+        public void From(ActivityViewModel activityViewEntity, long UserId)
+        {
+            Id = activityViewEntity.id;
+            Name = activityViewEntity.Name;
+            Description = activityViewEntity.Description;
+            Created = activityViewEntity.Created;
+            DurationInSec = activityViewEntity.DurationInSec;
+            this.UserId = UserId;
 
         }
     }

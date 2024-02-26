@@ -13,6 +13,9 @@ namespace ActivityCheck.Service.Interfaces
     {
         public Task<BaseResponse<IEnumerable<User>>> GetUsers();
         public Task<BaseResponse<User>> GetUser(long Id);
+
+        public Task<BaseResponse<User>> GetUser(string UserName, string password);
+        public Task<BaseResponse<User>> FindUser(string UserName, string Email);
         public Task<BaseResponse<bool>> DeleteUser(long Id);
         public Task<BaseResponse<User>> CreateUser(UserViewModel entity);
         public Task<BaseResponse<User>> UpdateUser(long Id, UserViewModel entity);

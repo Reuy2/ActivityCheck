@@ -13,10 +13,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ActivityCheck.Service.Implementations
 {
-    internal class UserService : IUserService
+    public class UserService : IUserService
     {
         private readonly IBaseRepository<User> _userRepository;
-        public UserService(UserRepository userRepository)
+        public UserService(IBaseRepository<User> userRepository)
         {
             _userRepository = userRepository;
         }
@@ -30,12 +30,13 @@ namespace ActivityCheck.Service.Implementations
                 if (userFromDb is not null)
                 {
                     response.Description = "User Already Exist";
-                    response.StatusCode = Domain.Enum.StatusCode.Ok;
+                    response.StatusCode = Domain.Enum.StatusCode.NotFound;
                     return response;
                 }
                 var user = new User()
                 {
                     Name = entity.Name,
+                    Email = entity.Email,
                     Password = entity.Password
                 };
 
@@ -79,6 +80,32 @@ namespace ActivityCheck.Service.Implementations
             }
         }
 
+        public async Task<BaseResponse<User>> FindUser(string UserName, string Email)
+        {
+            var response = new BaseResponse<User>();
+            try
+            {
+                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Email == Email || x.Name == UserName);
+
+                if (user is null)
+                {
+                    response.StatusCode = Domain.Enum.StatusCode.NotFound;
+                    response.Description = "Юзер не найден";
+                    return response;
+                }
+
+                response.StatusCode = Domain.Enum.StatusCode.Ok;
+                response.Data = user;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = Domain.Enum.StatusCode.InternalServerError;
+                response.Description = $"[FindUser]: {ex.Message}";
+                return response;
+            }
+        }
+
         public async Task<BaseResponse<User>> GetUser(long Id)
         {
             var response = new BaseResponse<User>();
@@ -96,6 +123,32 @@ namespace ActivityCheck.Service.Implementations
                 return response;
             }
             catch(Exception ex )
+            {
+                response.StatusCode = Domain.Enum.StatusCode.InternalServerError;
+                response.Description = $"[GetUser]: {ex.Message}";
+                return response;
+            }
+        }
+
+        public async Task<BaseResponse<User>> GetUser(string UserName, string password)
+        {
+            var response = new BaseResponse<User>();
+            try
+            {
+                var user = await _userRepository.GetAll().FirstOrDefaultAsync(x => x.Password == password && x.Name == UserName);
+
+                if(user is null)
+                {
+                    response.StatusCode = Domain.Enum.StatusCode.NotFound;
+                    response.Description = "Юзер не найден";
+                    return response;
+                }
+
+                response.StatusCode = Domain.Enum.StatusCode.Ok;
+                response.Data = user;
+                return response;
+            }
+            catch(Exception ex)
             {
                 response.StatusCode = Domain.Enum.StatusCode.InternalServerError;
                 response.Description = $"[GetUser]: {ex.Message}";

@@ -1,0 +1,114 @@
+﻿@{
+    var isIncorrectLogin = ViewBag.isIncorrectLogin??false;
+}
+@*Добавить шифрование пароля*@
+<div style="text-align:center; padding:10px;">
+    <form method="post">
+        <p>Введите логин</p>
+        <input  type="text" name="login" required />
+        <p></p>
+
+        <p>Введите пароль</p>
+        <input  type="password" name="password" required />
+        <p></p>
+
+        <input  type="submit" value="Войти">
+
+    </form>
+</div>    
+
+<dialog id="incorrectLoginDialog">
+    <p>Неверный логин или пароль</p>
+    <button onclick="window.incorrectLoginDialog.close();">Закрыть</button>
+</dialog>
+
+<dialog id="ErrDialog">
+    <p>Неполадки с сервером, уже чиним</p>
+    <button onclick="window.ErrDialog.close();">Закрыть</button>
+</dialog>
+
+@if (isIncorrectLogin)
+    {
+        <script>
+        window.incorrectLoginDialog.showModal();
+        </script>
+    }
+
+<style>
+    p{
+        margin:0px;
+    }
+    button{
+        margin-top:5px;
+    }
+    input{
+        margin-bottom: 5px;
+    }
+    dialog{
+        text-align:center;
+    }
+</style>
+
+<script>
+
+    function loginSubmit(form) {
+        $.ajax({
+            type: 'POST',
+            url: "/User/Login",
+            dataType: 'json',
+            data: $('form').serialize(),
+            // success: function (response) {
+            //     //console.log(response);
+            //     window.location.replace(window.location.origin+response.responseText);
+            //     return;
+            // },
+            error: function (err) {
+                console.log(err)
+                if (err.status == 401) {
+                    window.incorrectLoginDialog.showModal();
+                }
+                else if (err.status == 302) {
+                    return;
+                }
+                else{
+                    window.ErrDialog.showModal();
+                }
+            }
+        })
+    }
+
+    function submitEditDialog(form) {
+        let goal = {
+            id: currentSelectedRow.cells[0].getAttribute('data-goalId'),
+            name: form.name.value,
+            description: form.description.value,
+            statusId: form.statusId.value
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/editGoal',
+            dataType: 'json',
+            data: goal,
+            success: function (response) {
+                currentSelectedRow.cells[0].innerHTML = response.name
+                currentSelectedRow.cells[1].innerHTML = response.description
+                currentSelectedRow.cells[2].innerHTML = response.status.statusName
+                currentSelectedRow.cells[2].setAttribute('data-id', response.statusId)
+
+                clearAllSelectedTr()
+
+                window.editDialog.close()
+
+                window.okEdit.showModal()
+            },
+            error: function (req, status, error) {
+                console.log(error)
+                window.editDialog.close()
+                window.errEdit.showModal()
+            }
+        });
+
+        window.addDialog.close()
+    }
+</script>

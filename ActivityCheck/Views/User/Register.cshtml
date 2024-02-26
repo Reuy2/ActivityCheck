@@ -1,0 +1,58 @@
+﻿@{
+    var isIncorrectRegister = ViewBag.isIncorrectRegister??false;
+}
+@*Добавить шифрование пароля*@
+<div style="text-align:center; padding:10px;">
+    <form method="post">
+        @*Добавить минимальную и максимальную длину логина и пароля*@
+        <p>Введите логин</p>
+        <input type="text" name="name" required />
+        <p></p>
+
+        <p>Введите Email</p>
+        <input type="email" name="Email" required />
+        <p></p>
+
+        <p>Введите пароль</p>
+        <input type="password" name="password" required />
+        <p></p>
+
+        <input type="submit" value="Зарегистрироваться">
+        @*Добавить конфирмацию пароля*@
+    </form>
+</div>
+
+<dialog id="incorrectRegisterDialog">
+    <p>Пользователь с таким логином уже есть</p>
+    <button onclick="window.incorrectRegisterDialog.close();">Закрыть</button>
+</dialog>
+
+<dialog id="ErrDialog">
+    <p>Неполадки с сервером, уже чиним</p>
+    <button onclick="window.ErrDialog.close();">Закрыть</button>
+</dialog>
+
+@if (isIncorrectRegister)
+{
+    <script>
+        window.incorrectRegisterDialog.showModal();
+    </script>
+}
+
+<style>
+    p {
+        margin: 0px;
+    }
+
+    button {
+        margin-top: 5px;
+    }
+
+    input {
+        margin-bottom: 5px;
+    }
+
+    dialog {
+        text-align: center;
+    }
+</style>
