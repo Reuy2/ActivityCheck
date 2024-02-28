@@ -1,4 +1,6 @@
-﻿using ActivityCheck.Domain.ViewEntity.User;
+﻿using ActivityCheck.Domain.Entity;
+using ActivityCheck.Domain.Response;
+using ActivityCheck.Domain.ViewEntity.User;
 using ActivityCheck.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -40,13 +42,18 @@ namespace ActivityCheck.Controllers
 
             if(response.StatusCode == Domain.Enum.StatusCode.Ok)
             {
-                var claims = new List<Claim>() { new Claim(ClaimTypes.Name, response.Data.Name) };
-                var claimIdentity = new ClaimsIdentity(claims,"Cookies");
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentity));
+                await AuthorizeUser(response.Data);
                 return Redirect(returnUrl ?? "/");
             }
 
             return new StatusCodeResult(int.Parse(Domain.Enum.StatusCode.InternalServerError.ToString()));
+        }
+
+        private async Task AuthorizeUser(User user)
+        {
+            var claims = new List<Claim>() { new Claim(ClaimTypes.Name, user.Name),new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) };
+            var claimIdentity = new ClaimsIdentity(claims, "Cookies");
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentity));
         }
 
         [HttpGet]
@@ -66,9 +73,7 @@ namespace ActivityCheck.Controllers
                 response =  await _userService.CreateUser(userViewModel);
                 if(response.StatusCode == Domain.Enum.StatusCode.Ok)
                 {
-                    var claims = new List<Claim>() { new Claim(ClaimTypes.Name, response.Data.Name) };
-                    var claimIdentity = new ClaimsIdentity(claims, "Cookies");
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentity));
+                    AuthorizeUser(response.Data);
                     return Redirect("/");
                 }
                 else

@@ -17,11 +17,8 @@ namespace ActivityCheck.Domain.ViewEntity.Activity
         [DisplayName("Описание")]
         [Required(ErrorMessage = "Укажите Описание")]
         public string Description { get; set; }
-        [DisplayName("Дата активности")]
-        public DateTime Created { get; set; }
         [DisplayName("Длительность активности")]
         [Required(ErrorMessage ="Укажите продолжительность")]
         public int DurationInSec { get; set; }
-        public byte[]? Icon { get; set; }
     }
 }

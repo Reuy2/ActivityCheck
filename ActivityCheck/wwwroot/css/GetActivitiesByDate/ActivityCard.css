@@ -9,13 +9,13 @@
     border-color: black;
     border-width: 2px;
     border: 2px solid black;
-    min-width: 200px;
+    width: 300px;
     background-color: rgba(233, 243, 22, 0.34);
 }
 
 .activity-card-card {
     width: auto;
-    height: auto;
+    height:fit-content;
     display: flex;
     align-items: center;
     padding-left: 10px;

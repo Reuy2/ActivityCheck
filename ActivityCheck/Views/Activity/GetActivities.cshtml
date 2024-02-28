@@ -1,10 +1,82 @@
 ﻿<link rel="stylesheet" href="~/css/GetActivities/GetActivitiesStyle.css" />
 
+<dialog id="addActivityDialog">
+    <form method="post" onsubmit="submitAddActivityForm(this);return false;">
+        <p style="text-align:left;">
+            <p>Название:</p>
+            <input type="text" required name="Name" />
+        </p>
 
-<input id="GetChart" type="button" value="ShowChart"/>
-<br/>
+        <p style="text-align:left;">
+            <p>Описание:</p>
+            <input type="text" required name="Description" />
+        </p>
 
-<canvas id="ActivityChart" class="AllActivityChart"></canvas>
+        <p style="text-align:left;">
+            <p>Длительность:</p>
+            <input type="number" required name="hours" max="24" min="0"/>
+            <input type="number" required name="minutes" max="60" min="0" />
+        </p>
+
+        <p>
+        <input type="submit" value="Добавить" />
+        <input type="button" value="Закрыть" onclick="window.addActivityDialog.close();"/>
+        </p>
+    </form>
+</dialog>
+
+<dialog id="okAddActivity">
+    <div>
+        <p>Запись добавлена</p>
+        <button onclick="window.okAddActivity.close();">Закрыть</button>
+    </div>
+</dialog>
+
+<dialog id="errAddActivity">
+    <div>
+        <p>Запись не добавлена</p>
+        <button onclick="window.errAddActivity.close();">Закрыть</button>
+    </div>
+</dialog>
+
+<div style="text-align:center;">
+    <input onclick="window.addActivityDialog.showModal();" type="button" value="Добавить активность"/>
+    <input id="GetChart" type="button" value="График активности" />
+    <br />
+
+    <canvas id="ActivityChart" style="max-height:500px; height:400px; max-width:70%; width:70%;"></canvas> 
+</div>
+
+<script>
+    function submitAddActivityForm(form){
+        const name = form.querySelector('[name="Name"]').value;
+        const desc = form.querySelector('[name="Description"]').value;
+        const hours = form.querySelector('[name="hours"]').value;
+        const minutes = form.querySelector('[name="minutes"]').value;
+
+        var activity = {
+            Name: name,
+            Description: desc,
+            DurationInSec: (hours * 60 * 60 + minutes * 60).toString()
+        }
+
+        console.log(JSON.stringify(activity));
+
+        $.ajax({
+            type: 'POST',
+            url: '/Activity/CreateActivity',
+            contentType: "application/json",
+            data: JSON.stringify(activity),
+            success: function (response) {
+                window.addActivityDialog.close();
+                window.okAddActivity.showModal();
+            },
+            error: function (err) {
+                window.errAddActivity.showModal();
+            }
+        });
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

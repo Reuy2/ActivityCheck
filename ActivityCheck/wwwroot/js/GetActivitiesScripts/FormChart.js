@@ -16,16 +16,26 @@
             var _data = data;
             var _chartLabels = _data[0];
             var _chartData = _data[1];
+            console.log(_chartData);
+            console.log("1");
 
             new Chart(chartName, {
                 type: "bar",
                 data: {
                     labels: _chartLabels,
-                    datasets: [{
-                        data: _chartData
-                    }]
-                }, options: {
-                    onClick: graphClickEvent
+                    datasets: _chartData
+                },
+                options: {
+                    responsive: true,
+                    onClick: graphClickEvent,
+                    scales: {
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    }
                 }
             });
         }
@@ -35,6 +45,6 @@
     }
 
         function OnError(err) {
-
+            console.log(err);
         }
 });

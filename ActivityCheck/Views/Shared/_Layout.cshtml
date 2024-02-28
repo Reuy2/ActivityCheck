@@ -20,7 +20,7 @@
                 @if (!User.Identity.IsAuthenticated)
                 {
                     <nav id="Buttons" class="authorize-buttons-authorize-buttons">
-                        <button type="button" class="authorize-buttons-reg-button button">
+                        <button onclick="location.href='/User/Register'" type="button" class="authorize-buttons-reg-button button">
                             Регистрация
                         </button>
                         <button onclick = "location.href='/User/Login'" type="button" class="authorize-buttons-reg-button button">
@@ -31,6 +31,10 @@
                 else
                 {
                     <nav id="Buttons" class="authorize-buttons-authorize-buttons">
+                        <button onclick="location.href='/Activity/GetActivities'" type="button" class="authorize-buttons-reg-button button">
+                            Активности
+                        </button>
+
                         <button onclick="location.href='/User/LogOut'" type="button" class="authorize-buttons-reg-button button">
                             Выход
                         </button>

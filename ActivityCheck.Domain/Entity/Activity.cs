@@ -19,7 +19,7 @@ namespace ActivityCheck.Domain.Entity
             Id = activityViewEntity.id;
             Name = activityViewEntity.Name;
             Description = activityViewEntity.Description;
-            Created = activityViewEntity.Created;
+            Created = DateTime.Now;
             DurationInSec = activityViewEntity.DurationInSec;
 
         }
@@ -29,7 +29,7 @@ namespace ActivityCheck.Domain.Entity
             Id = activityViewEntity.id;
             Name = activityViewEntity.Name;
             Description = activityViewEntity.Description;
-            Created = activityViewEntity.Created;
+            Created = DateTime.Now;
             DurationInSec = activityViewEntity.DurationInSec;
             this.UserId = UserId;
 

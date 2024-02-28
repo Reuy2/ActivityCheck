@@ -2,41 +2,71 @@
 @model IEnumerable<Activity>
 
 <link rel="stylesheet" href="~/css/GetActivitiesByDate/ActivityCard.css" />
-@foreach(var act in Model)
-{
+<div id="card-wrapper">
+    @foreach (var act in Model)
+    {
 
-    var durationInHour = act.DurationInSec / 60 / 60;
-    var durationMinutes = (act.DurationInSec / 60) - durationInHour * 60;
-    string formatDuration = $"{durationInHour}h:{durationMinutes}m";
-    string formatDate = $"{act.Created.Day}:{act.Created.Month}:{act.Created.Year}";
+        var durationInHour = act.DurationInSec / 60 / 60;
+        var durationMinutes = (act.DurationInSec / 60) - durationInHour * 60;
+        string formatDuration = $"{durationInHour}h:{durationMinutes}m";
+        string formatDate = act.Created.ToShortDateString();//$"{act.Created.Day}:{act.Created.Month}:{act.Created.Year}";
 
-<div class="activity-card-container">
-        <div class="activity-card-card">
-            <div class="activity-card-name">
-                <h2 class="activity-card-text">@act.Name</h2>
+        <div class="activity-card-container">
+            <div class="activity-card-card">
+                <div class="activity-card-name">
+                    <h2 class="activity-card-text">@act.Name</h2>
+                </div>
+                <div class="activity-card-duration"><span>Длительность: @formatDuration</span></div>
+                <div class="activity-card-description"><span>Описание: @act.Description </span></div>
+                <div class="activity-card-buttons">
+                    <button id="delBtn" onclick="DelBtnClick(this);" actId="@act.Id" type="button" class="activity-card-delete-button button">
+                        Удалить
+                    </button>
+                    <button type="button" actId="@act.Id" class="activity-card-edit-button button">
+                        Изменить
+                    </button>
+                </div>
+                <div class="activity-card-container1"><span>@formatDate</span></div>
             </div>
-            <div class="activity-card-duration"><span>Длительность: @formatDuration</span></div>
-            <div class="activity-card-description"><span>Описание: @act.Description </span></div>
-            <div class="activity-card-buttons">
-                <button id="delBtn" actId="@act.Id" type="button" class="activity-card-delete-button button">
-                    Удалить
-                </button>
-                <button type="button" class="activity-card-edit-button button">
-                    Изменить
-                </button>
-            </div>
-            <div class="activity-card-container1"><span>@formatDate</span></div>
         </div>
-    </div>
-}
+    }
+</div>
+
+<dialog id="okDelDialog" style="text-align:center;">
+    <p>Запись удалена</p>
+    <button onclick="window.okDelDialog.close();">Закрыть</button>
+</dialog>
+
+<dialog id="errDelDialog" style="text-align:center;">
+    <p>Запись не была удалена</p>
+    <button onclick="window.errDelDialog.close();">Закрыть</button>
+</dialog>
+
+<style>
+    #card-wrapper{
+        display: flex;
+        flex-flow: wrap;
+        align-content: flex-start;
+        justify-content: center;
+    }
+</style>
 
 <script type="text/javascript">
-    const deleteBtn = $("#delBtn");
 
-    deleteBtn.Click = DelBtnClick;
-
-    function DelBtnClick(){
-
+    function DelBtnClick(but){
+        console.log(but.getAttribute("actId").value);
+        $.ajax({
+            type: 'DELETE',
+            url: '/Activity/DeleteActivity',
+            contentType: "application/json",
+            data: but.getAttribute("actId"),
+            success: function (response) {
+                window.okDelDialog.showModal();
+            },
+            error: function (err) {
+                window.errDelDialog.showModal();
+            }
+        })
     }
 
 </script>

@@ -79,7 +79,7 @@ namespace ActivityCheck.Service.Implementations
                 {
                     Name = activityView.Name,
                     Description = activityView.Description,
-                    Created = activityView.Created,
+                    Created = DateTime.Now,
                     DurationInSec = activityView.DurationInSec,
                 };
 
@@ -151,14 +151,13 @@ namespace ActivityCheck.Service.Implementations
                 return response;
             }
         }
-
-        public async Task<BaseResponse<IEnumerable<Activity>>> GetActivitiesByDate(DateTime date)
+        public async Task<BaseResponse<IEnumerable<Activity>>>  GetActivitiesByDate(DateTime date, long userId)
         {
             var response = new BaseResponse<IEnumerable<Activity>>();
             try
             {
 
-                var activities = await _activityRepository.GetAll().Where(x=>x.Created.Date == date.Date).ToListAsync();
+                var activities = await _activityRepository.GetAll().Where(x=>x.Created.Date == date.Date && x.UserId == userId).ToListAsync();
 
                 if (activities.Count() == 0)
                 {
@@ -173,11 +172,68 @@ namespace ActivityCheck.Service.Implementations
             catch(Exception ex)
             {
                 response.StatusCode = StatusCode.InternalServerError;
-                response.Description = $"[Edit]: {ex.Message}";
+                response.Description = $"[GetActivitiesByDate]: {ex.Message}";
                 return response;
             }
 
 
+        }
+
+        public async Task<BaseResponse<IEnumerable<Activity>>> GetActivities(long userId)
+        {
+            var response = new BaseResponse<IEnumerable<Activity>>();
+
+            try
+            {
+                var activitiesResp = _activityRepository.GetAll().Where(x=>x.UserId == userId);
+
+                if(activitiesResp is null)
+                {
+                    response.StatusCode = StatusCode.NotFound;
+                    response.Description = "Нет активностей";
+                    return response;
+                }
+
+                response.Data = activitiesResp;
+                response.StatusCode = StatusCode.Ok;
+                return response;
+
+            }
+            catch(Exception ex)
+            {
+                response.StatusCode = StatusCode.InternalServerError;
+                response.Description = $"[GetActivitiesWithUserId]: {ex.Message}";
+                return response;
+            }
+        }
+
+        public async Task<BaseResponse<Activity>> CreateActivity(ActivityViewModel activityView, long userId)
+        {
+            var response = new BaseResponse<Activity>();
+            try
+            {
+                Activity activity = new Activity()
+                {
+                    Name = activityView.Name,
+                    Description = activityView.Description,
+                    Created = DateTime.Now,
+                    DurationInSec = activityView.DurationInSec,
+                    UserId = userId
+                };
+
+                await _activityRepository.Create(activity);
+
+                response.StatusCode = StatusCode.Ok;
+                response.Data = activity;
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                response.Description = $"[CreateActivity] : {ex.Message}";
+                response.StatusCode = StatusCode.InternalServerError;
+                return response;
+            }
         }
     }
 }
